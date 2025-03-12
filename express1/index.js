@@ -1,8 +1,16 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 const port = 3000;
 
 
+function writeTodos(todos){
+    fs.writeFile('./db.json','todos',(err)=>{
+        if(err){
+            console.log("error in writing todos");
+        }
+    });
+}
 const data = require('./db.json');
 app.use(express.json());
 
