@@ -11,6 +11,18 @@ function writeTodos(todos){
         }
     });
 }
+
+let todos;
+function readTodos(){
+    fs.readFile('./db.json',(err,data)=>{
+        if(err){
+            console.log("error in reading todos");
+        }
+        todos = JSON.parse(data);
+    });
+}
+
+
 const data = require('./db.json');
 app.use(express.json());
 
